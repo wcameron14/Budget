@@ -1,0 +1,65 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Flask files
+instance/
+*.sqlite3
+*.db
+
+# Node modules
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+*.log
+
+# Electron build files
+/build/
+!src/build/
+
+# Ignore IDE settings
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python virtual environment
+env/
+.venv/
+
+# Ignoring large model files or datasets
+models/
+*.ckpt
+*.h5
+*.tflite
+*.pt
+*.tar.gz
+
+# Ignore personal files
+*.env
+.env.local
+.env.*.local

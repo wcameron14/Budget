@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Budget App</h1>
+    <p id="instruction">Start by uploading your transaction CSV file to create a budget.</p>
+    
+    <div id="uploadSection">
+      <input type="file" id="fileInput">
+      <button onclick="uploadCSV()">Upload CSV</button>
+    </div>
+
+    <div id="dateRangeStatementContainer">
+      <!-- Date range statement will be inserted here -->
+    </div>
+
+    <div id="output">
+      <!-- Table output will be displayed here -->
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
