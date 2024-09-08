@@ -32,3 +32,19 @@ app.whenReady().then(() => {
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit();
 });
+
+// Use this function when processing new transactions
+// For example:
+function processNewTransactions(newTransactions) {
+  // Fetch existing transactions to use as history
+  fetch('/api/transactions')
+      .then(response => response.json())
+      .then(history => {
+          return categorizeTransactions(newTransactions, history);
+      })
+      .then(categorizedTransactions => {
+          // Update UI with categorized transactions
+          updateTransactionList(categorizedTransactions);
+          renderFlaggedTransactions();
+      });
+}

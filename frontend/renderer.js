@@ -77,17 +77,6 @@ function goToPage(page) {
     displayPage(page);
 }
 
-function categorizeTransaction(description) {
-    return axios.post('http://localhost:5000/categorize_transactions', { 
-        description: description
-    }).then(response => {
-        return response.data.category;
-    }).catch(error => {
-        console.error('Error categorizing the transaction:', error);
-        return 'Uncategorized';  // Fallback category
-    });
-}
-
 // Update the uploadCSV function to categorize transactions
 function uploadCSV() {
     const fileInput = document.getElementById('fileInput');
@@ -133,16 +122,6 @@ function uploadCSV() {
         dateRangeStatement.id = 'dateRangeStatement';
         dateRangeStatement.innerHTML = `Transactions from: ${minDate.toLocaleDateString()} to ${maxDate.toLocaleDateString()}`;
         dateRangeContainer.appendChild(dateRangeStatement);
-
-        // Categorize and display the first page of transactions
-        currentPage = 1;
-        Promise.all(transactions.map(async (transaction) => {
-            transaction.Category = await categorizeTransaction(transaction.Description);
-            return transaction;
-        })).then(categorizedTransactions => {
-            transactions = categorizedTransactions;
-            displayPage(currentPage);
-        });
 
         // Show a confirmation message
         alert('CSV uploaded and processed successfully.');

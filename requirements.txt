@@ -1,0 +1,6 @@
+flask
+pandas
+matplotlib
+requests
+flask_cors
+electron
